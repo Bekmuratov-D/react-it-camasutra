@@ -1,0 +1,35 @@
+.app-wrapper {
+  text-align: center;
+  display: grid;
+  grid-template-areas: 
+  "header header"
+  "nav main"
+  "footer footer";
+
+  grid-template-columns: 2fr 10fr;
+  grid-template-rows: 60px 1fr;
+}
+
+
+.header{
+  grid-area: header;
+  background: rgb(184, 239, 151);
+}
+.hav{
+  grid-area: nav;
+  background: rgb(61, 105, 108);
+}
+.main{
+  grid-area: main;
+  background: rgb(61, 105, 108);
+}
+.footer{
+  grid-area: footer;
+  background: rgb(184, 239, 151);
+}
+
+
+.logo{
+  width: 40px;
+  height: 40px;
+}
