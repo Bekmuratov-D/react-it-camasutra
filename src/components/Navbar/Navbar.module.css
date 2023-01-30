@@ -1,0 +1,10 @@
+.nav {
+    grid-area: nav;
+    background: burlywood;
+    padding-top: 20px;
+}
+
+.item{
+    color: gray;
+    text-decoration: none;
+}
