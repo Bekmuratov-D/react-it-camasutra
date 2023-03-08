@@ -5,6 +5,13 @@ import DialogItem from "./components/DialogIteam";
 import Message from "./components/Message";
 
 const Dialogs = (props) => {
+
+    let newMessageElement = React.createRef();
+
+    let sendPost = () => {
+        let text = newMessageElement.current.value;
+        alert(text)
+    }
    
 
     let dialogsElements = props.data.dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>);
@@ -28,6 +35,10 @@ const Dialogs = (props) => {
                     <Route path="4" element={<p>Chat Lisa</p>}/>
                     <Route path="5" element={<p>Chat Antosha</p>}/>
                 </Routes>
+                <div className={d.dialogs_send}>
+                    <input ref={newMessageElement} className={d.send_input} type="text" />
+                    <button onClick={sendPost}  className={d.send_button}>Отправит</button>
+                </div>
             </div>
         </div>
     )
