@@ -10,15 +10,13 @@ import MusicPage from "./pages/MusicPage/MusicPage";
 import NewsPage from "./pages/NewsPage/NewsPage";
 
 const App = (props) => {
-
-
-
     return (
         <div className="app-wrapper">
+        
             <Routes>
                 <Route path='/' element={<Layout/>}>
-                    <Route path='dialogs/*' element={<Dialogs mes={props.mes} />}/>
-                    <Route path='profile' element={<Profile post={props.post}/>}/>
+                    <Route path='dialogs/*' element={<Dialogs data={props.state.dialogsPage}/>}/>
+                    <Route path='profile' element={<Profile data={props.state.profilePage}/>}/>
                     <Route path='news' element={<NewsPage/>}/>
                     <Route path='music' element={<MusicPage/>}/>
                     <Route path='settings' element={<SettingsPage/>}/>

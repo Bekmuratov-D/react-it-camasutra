@@ -6,11 +6,10 @@ import ProfileInfo from "./Components/Profile";
 const Profile = (props) => {
 
 
-
     return (
       <div className={p.main}>
         <ProfileInfo/>
-        <MyPosts post={props.post}/>
+        <MyPosts post={props.data.postData}/>
       </div>
     )
 }
