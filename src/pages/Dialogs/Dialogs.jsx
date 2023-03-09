@@ -5,12 +5,15 @@ import DialogItem from "./components/DialogIteam";
 import Message from "./components/Message";
 
 const Dialogs = (props) => {
-
     let newMessageElement = React.createRef();
-
+    
     let sendPost = () => {
+        props.addMessage()
+    }
+
+    let onMessageText = () => {
         let text = newMessageElement.current.value;
-        alert(text)
+        props.updateNewMessage(text)
     }
    
 
@@ -36,7 +39,7 @@ const Dialogs = (props) => {
                     <Route path="5" element={<p>Chat Antosha</p>}/>
                 </Routes>
                 <div className={d.dialogs_send}>
-                    <input ref={newMessageElement} className={d.send_input} type="text" />
+                    <input onChange={onMessageText} ref={newMessageElement} className={d.send_input} value={props.data.newMessageText} type="text" />
                     <button onClick={sendPost}  className={d.send_button}>Отправит</button>
                 </div>
             </div>
