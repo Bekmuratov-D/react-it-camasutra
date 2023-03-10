@@ -6,14 +6,13 @@ import Message from "./components/Message";
 
 const Dialogs = (props) => {
     let newMessageElement = React.createRef();
-    
     let sendPost = () => {
-        props.addMessage()
+        props.dispatch({type: 'ADD_MESSAGE'})
     }
 
     let onMessageText = () => {
         let text = newMessageElement.current.value;
-        props.updateNewMessage(text)
+        props.dispatch({type: 'UPDATE_NEW_MESSAGE', text: text})
     }
    
 
