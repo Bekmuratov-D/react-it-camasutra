@@ -1,4 +1,9 @@
 
+const ADD_POST = 'ADD_POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
+const ADD_MESSAGE = 'ADD_MESSAGE'
+const UPDATE_NEW_MESSAGE = 'UPDATE_NEW_MESSAGE'
+
 let store = {
     _state : {
         profilePage: {
@@ -37,36 +42,8 @@ let store = {
         this._callSubscribe = observer
     },
 
-    addPost () {
-        let newPost = {
-            id: 6,
-            post: this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.postData.push(newPost);
-        this._state.profilePage.newPostText = ''
-        this._callSubscribe(this._state)
-    },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText
-        this._callSubscribe(this._state)
-    },
-    updateNewMessage(newMessage) {
-        this._state.dialogsPage.newMessageText = newMessage
-        this._callSubscribe(this._state)
-    },
-    addMessage() {
-        let newMessage = {
-            id: 4,
-            message: this._state.dialogsPage.newMessageText,
-        }
-        this._state.dialogsPage.messages.push(newMessage)
-        this._state.dialogsPage.newMessageText = ''
-        this._callSubscribe(this._state)
-    },
-
     dispatch(action) {
-        if(action.type === 'ADD_POST'){
+        if(action.type === ADD_POST){
             let newPost = {
                 id: 6,
                 post: this._state.profilePage.newPostText,
@@ -75,10 +52,10 @@ let store = {
             this._state.profilePage.postData.push(newPost);
             this._state.profilePage.newPostText = ''
             this._callSubscribe(this._state)
-        } else if(action.type === 'UPDATE_NEW_POST_TEXT') {
+        } else if(action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.text
             this._callSubscribe(this._state)
-        } else if(action.type === 'ADD_MESSAGE') {
+        } else if(action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: 4,
                 message: this._state.dialogsPage.newMessageText,
@@ -86,12 +63,21 @@ let store = {
             this._state.dialogsPage.messages.push(newMessage)
             this._state.dialogsPage.newMessageText = ''
             this._callSubscribe(this._state)
-        }else if(action.type === 'UPDATE_NEW_MESSAGE') {
+        }else if(action.type === UPDATE_NEW_MESSAGE) {
             this._state.dialogsPage.newMessageText = action.text
             this._callSubscribe(this._state)
         }
     }
 }
+
+export const addPostActionCreater = () => 
+    ({type: ADD_POST })
+export const updateNewPostTextActionCreater  = (text) => 
+    ({ type: UPDATE_NEW_POST_TEXT, text: text})
+export const addMessageActionCreater = () => 
+    ({type: ADD_MESSAGE})
+export const updateNewMessageActionCreater = (text) => 
+    ({type: UPDATE_NEW_MESSAGE, text: text})
 
 
 export default store;

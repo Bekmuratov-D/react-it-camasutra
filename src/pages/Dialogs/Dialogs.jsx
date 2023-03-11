@@ -3,16 +3,17 @@ import d from './Dialogs.module.css';
 import {Route, Routes} from "react-router-dom";
 import DialogItem from "./components/DialogIteam";
 import Message from "./components/Message";
+import { addMessageActionCreater, updateNewMessageActionCreater } from '../../redax/state';
 
 const Dialogs = (props) => {
     let newMessageElement = React.createRef();
     let sendPost = () => {
-        props.dispatch({type: 'ADD_MESSAGE'})
+        props.dispatch(addMessageActionCreater())
     }
 
     let onMessageText = () => {
         let text = newMessageElement.current.value;
-        props.dispatch({type: 'UPDATE_NEW_MESSAGE', text: text})
+        props.dispatch(updateNewMessageActionCreater(text))
     }
    
 
